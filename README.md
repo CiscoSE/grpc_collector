@@ -17,7 +17,7 @@ This solution is aimed for testing purposes only. If you are looking for product
 
 ### Cisco Products Technologies/ Services
 
-The levegerage the following Cisco technologies
+The app levegerage the following Cisco technologies
 
 * [Cisco XE](https://www.cisco.com/c/en/us/products/ios-nx-os-software/ios-xe/index.html)
 * [Cisco NX](https://www.cisco.com/c/en/us/products/ios-nx-os-software/nx-os/index.html)
