@@ -1,6 +1,6 @@
 # gRPC Collector
 
-Test telemetry collector using gRPC and KVGPB
+Test telemetry collector using gRPC and KVGPB for XR, XE and NX devices
 
 
 ## Technical Challenge
