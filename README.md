@@ -105,7 +105,7 @@ commit
 * Run the application: 
 
 ```bash
-./go/bin/dial_out
+./bin/cisco_telemetry_mdt 
 ```
 
 ## Documentation
