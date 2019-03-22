@@ -1,61 +1,116 @@
-# grpc_collector
+# gRPC Collector
 
-Test collector for XR, NX and XR using gRPC
+Test telemetry collector using gRPC and KVGPB
 
 
-## Business/Technical Challenge
+## Technical Challenge
 
-**TODO:** 1-3 paragraphs of the business/technical Challenge
+Altough there are several collectors available for model driven telemetry, for cases when you just want to test what is coming back from the device, it can be difficult to find a solution that can just accept gRPC connection and print the telemetry messages in stdout. 
+This app is based from the [Cisco MDT Telegraf Plugin](https://github.com/ios-xr/telegraf-plugin/tree/master/plugins/inputs/cisco_telemetry_mdt)
+
 
 ## Proposed Solution
 
-
-**TODO:** 1-3 paragraphs of the solution in written format
+The gRPC collector is able to open a port that devices can connect to via gRPC, using KV GPB as encoding without TLS.
+This solution is aimed for testing purposes only. If you are looking for production grade collector contact Cisco or use an open source solution such as [Pipeline](https://github.com/cisco/bigmuddy-network-telemetry-pipeline) or [Telegraf Plugin](https://github.com/ios-xr/telegraf-plugin/tree/master/plugins/inputs/cisco_telemetry_mdt)
 
 
 ### Cisco Products Technologies/ Services
 
-**TODO:** List out major technologies included in the solution (ACI, DNAC, third party, etc) e.g
+The levegerage the following Cisco technologies
 
-Our solution will levegerage the following Cisco technologies
+* [Cisco XE](https://www.cisco.com/c/en/us/products/ios-nx-os-software/ios-xe/index.html)
+* [Cisco NX](https://www.cisco.com/c/en/us/products/ios-nx-os-software/nx-os/index.html)
+* [Cisco XR](https://www.cisco.com/c/en/us/products/ios-nx-os-software/ios-xr-software/index.html)
 
-* [Application Centric Infrastructure (ACI)](http://cisco.com/go/aci)
-* [DNA Center (DNA-C)](http://cisco.com/go/dna)
+## Authors
 
-## Team Members
-
-
-**TODO:** ASIC projects must consist of a minimum of 2 SE’s
-representing a minimum of 2 segments. List names here
-
-* team member1 <email> - Segment Name
-* team member2 <email> - Segment Name
+* Santiago Flores Kanter <sfloresk@cisco.com>
 
 
 ## Solution Components
 
-
-<!-- This does not need to be completed during the initial submission phase  
-
-Provide a brief overview of the components involved with this project. e.g Python /  -->
+* Go
 
 
 ## Usage
 
-<!-- This does not need to be completed during the initial submission phase  
+Once you have the solution installed, just configure the devices with model driven telemetry and point them to this collector.
 
-Provide a brief overview of how to use the solution  -->
+### MDT Configuration example for XE
 
+```
+netconf-yang
+netconf ssh
+!
+telemetry ietf subscription 0
+ encoding encode-kvgpb
+ filter xpath /memory-ios-xe-oper:memory-statistics/memory-statistic
+ stream yang-push
+ update-policy periodic 500
+ receiver ip address <COLLECTOR_IP> 10000 protocol grpc-tcp
+end
 
+```
+
+### MDT Configuration example for NX
+
+```
+
+config
+telemetry
+  destination-group 1
+    ip address <COLLECTOR_IP> port 10000 protocol gRPC encoding GPB 
+  sensor-group 1
+    path sys/bgp/inst/dom-default depth 0
+    path sys/mgmt-[eth1/1]/dbgIfIn
+  sensor-group 2
+    data-source NX-API
+    path "show processes cpu" depth unbounded
+    path "show processes memory physical" depth unbounded
+    path "show system resources" depth unbounded
+  subscription 1
+    dst-grp 1
+    snsr-grp 1 sample-interval 5000
+    snsr-grp 2 sample-interval 5000
+```
+
+### MDT Configuration example for XR
+
+```
+config
+telemetry model-driven
+ destination-group grpc-collector
+  address-family ipv4 <COLLECTOR_IP> port 10000
+   encoding self-describing-gpb
+   protocol grpc no-tls
+  !
+ sensor-group grpc-collector-sensor
+  sensor-path Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary
+  sensor-path Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters
+ !
+ subscription Sub1
+  sensor-group-id grpc-collector-sensor sample-interval 5000
+  destination-id grpc-collector
+ !
+!
+commit
+
+```
 
 ## Installation
 
-How to install or setup the project for use.
+* Make sure to have [Go installed](https://golang.org/dl/)
+* Run the installation script located [here](./install.sh)
+* Run the application: 
 
+```bash
+./go/bin/dial_out
+```
 
 ## Documentation
 
-Pointer to reference documentation for this project.
+No extra documentation at this moment
 
 
 ## License
