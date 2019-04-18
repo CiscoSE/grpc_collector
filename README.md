@@ -98,6 +98,25 @@ commit
 
 ```
 
+TPA is needed in order to stream telemetry. Here is an example for vrf default
+
+```
+tpa
+ vrf default
+  address-family ipv4
+   default-route mgmt
+   update-source dataports MgmtEth0/RP0/CPU0/0
+  !
+  address-family ipv6
+   default-route mgmt
+   update-source dataports MgmtEth0/RP0/CPU0/0
+  !
+ !
+!
+commit
+
+```
+
 ## Installation
 
 * Make sure to have [Go installed](https://golang.org/dl/)
