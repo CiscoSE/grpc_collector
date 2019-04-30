@@ -39,11 +39,6 @@ Once you have the solution installed, just configure the devices with model driv
 
 ### MDT Configuration example for XE
 
-Enable netconf-yang processes
-```
-netconf-yang
-```
-
 ```
 netconf-yang
 netconf ssh
