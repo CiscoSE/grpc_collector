@@ -5,7 +5,7 @@ A simple script to test gNMI telemetry.
 ## Installation and Usage
 
 * Make sure to have [Go installed](https://golang.org/dl/)
-* Install the dependencies using the following script [here](/install.sh)
+* Install the dependencies using the [install](/install.sh) script
 * Add your device details and (optional) modify sensor paths at the end of the script. 
 * Configure gRPC in your device. For example, in IOS-XR should look like this:
 
