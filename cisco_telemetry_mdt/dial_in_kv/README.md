@@ -5,7 +5,7 @@ A simple script for Cisco MDT dial-in telemetry using KV GPB as encoding. Tested
 ## Installation and Usage
 
 * Make sure to have [Go installed](https://golang.org/dl/)
-* Install the dependencies using the following script [here](./install.sh)
+* Install the dependencies using the following script [here](/install.sh)
 * Add your device details and (optional) modify subscription name hardcoded in the script. 
 * Configure telemetry in your device. For example:
 

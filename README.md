@@ -37,10 +37,10 @@ The app levegerage the following Cisco technologies
 
 Please see README.md page for each script.
 
-1- [gNMI](./gnmi) 
-2- [Cisco Model Driven Telemetry - Dial out with KV](./cisco_telemetry_mdt/dial_out)
-3- [Cisco Model Driven Telemetry - Dial in with compact GPB](./cisco_telemetry_mdt/dial_in)
-4- [Cisco Model Driven Telemetry - Dial in with KV GPB](./cisco_telemetry_mdt/dial_in_kv)
+1. [gNMI](./gnmi) 
+2. [Cisco Model Driven Telemetry - Dial out with KV](./cisco_telemetry_mdt/dial_out)
+3. [Cisco Model Driven Telemetry - Dial in with compact GPB](./cisco_telemetry_mdt/dial_in)
+4. [Cisco Model Driven Telemetry - Dial in with KV GPB](./cisco_telemetry_mdt/dial_in_kv)
 
 ## Documentation
 

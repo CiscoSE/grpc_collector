@@ -30,7 +30,7 @@ Note that if you use a different sensor path, you will need to update the code a
 * Run the application: 
 
 ```bash
-cd $GOPATH/github.com/CiscoSE/grpc_collector/dial_in
+cd $GOPATH/src/github.com/CiscoSE/grpc_collector/cisco_telemetry_mdt/dial_in
 go build
 ./dial_in
 ```

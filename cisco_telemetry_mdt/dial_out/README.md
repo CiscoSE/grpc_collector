@@ -5,7 +5,7 @@ Test telemetry collection using gRPC and KVGPB for XR, XE and NX devices
 ## Installation
 
 * Make sure to have [Go installed](https://golang.org/dl/)
-* Run the installation script located [here](./install.sh)
+* Run the installation script located [here](/install.sh)
 * Compile and run the application: 
 
 ```bash
