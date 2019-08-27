@@ -28,7 +28,6 @@ func main() {
 		xr.WithUsername("YOUR_USER"),         // e.g. admin
 		xr.WithPassword("YOUR_PASS"),         // e.g. cisco123
 		xr.WithHost("YOUR_DEVICE:GRPC_PORT"), // e.g. 192.168.0.1:57344
-		xr.WithCert("ems.pem"),               // Remember to update certificate. See readme for instructions
 		xr.WithTimeout(60),
 	)
 	if err != nil {
