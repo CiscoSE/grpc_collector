@@ -1,4 +1,4 @@
-# gNMI sample collector
+# gNMI collector
 
 A simple script to test gNMI telemetry.
 
