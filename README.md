@@ -5,7 +5,7 @@ A set of go scripts to test telemetry using gRPC
 ## Technical Challenge
 
 Altough there are several collectors available for model driven telemetry and gNMI, for cases when you just want to test what is coming back from the device, it can be difficult to find a solution that can only accept or create a gRPC connection and print the telemetry messages in stdout. 
-This app is based from the [Cisco MDT Telegraf Plugin](https://github.com/ios-xr/telegraf-plugin/tree/master/plugins/inputs/cisco_telemetry_mdt) and [Cisco gNMI Telegraf Plugin](https://github.com/ios-xr/telegraf-plugin/tree/master/plugins/inputs/cisco_telemetry_mdt)
+The scripts are based from the [Cisco MDT Telegraf Plugin](https://github.com/ios-xr/telegraf-plugin/tree/master/plugins/inputs/cisco_telemetry_mdt) and [Cisco gNMI Telegraf Plugin](https://github.com/ios-xr/telegraf-plugin/tree/master/plugins/inputs/cisco_telemetry_mdt)
 
 
 ## Solution
